@@ -2,11 +2,19 @@ pipeline {
 	agent any
 
 	tools {
-        NodeJS 'node-18.7.0'
+        NodeJS 'NodeJS'
     }
 
 		
 	stages {
+		stage('Review node and npm installations') {
+			steps {
+				nodejs(nodeJSInstallationName: 'NodeJS') {
+					sh 'npm -v'
+					sh 'node -v'
+				}
+			}
+		}
 			
 		stage('Git') {
 			steps {
