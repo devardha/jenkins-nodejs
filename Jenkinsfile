@@ -4,16 +4,7 @@ pipeline {
 	tools { nodejs 'NodeJS' }
 
 		
-	stages {
-		stage('Review node and npm installations') {
-			steps {
-				nodejs(nodeJSInstallationName: 'NodeJS') {
-					sh 'npm -v'
-					sh 'node -v'
-				}
-			}
-		}
-			
+	stages {			
 		stage('Git') {
 			steps {
 				git 'https://github.com/devardha/jenkins-nodejs.git'
@@ -31,6 +22,7 @@ pipeline {
 		stage('Deployment') {
 			steps {
 				echo 'Deploying application'
+				echo ${env.SSH_HOST}
 			}
 		}
 	}
