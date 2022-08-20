@@ -22,7 +22,7 @@ pipeline {
 		stage('Deployment') {
 			steps {
 				echo 'Deploying application'
-				sh "ssh -tt dev@${env.SSH_HOST}"
+				sh "ssh -o -tt StrictHostKeyChecking=no dev@${env.SSH_HOST} uptime"
 			}
 		}
 	}
