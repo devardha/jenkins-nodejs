@@ -22,7 +22,7 @@ pipeline {
 		stage('Deployment') {
 			steps {
 				echo 'Deploying application'
-				sh "ssh dev@${env.SSH_HOST} ls"
+				sh "ssh dev@${env.SSH_HOST}"
 			}
 		}
 	}
